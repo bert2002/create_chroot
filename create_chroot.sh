@@ -46,8 +46,8 @@ function __init_server {
 	echo "" >> /etc/ssh/sshd_config
 	echo "Match group $SSHGROUP" >> /etc/ssh/sshd_config
 	echo "ChrootDirectory $JAILBASE/%u/" >> /etc/ssh/sshd_config
-  echo "X11Forwarding no" >> /etc/ssh/sshd_config
-  echo "AllowTcpForwarding no" >> /etc/ssh/sshd_config
+	echo "X11Forwarding no" >> /etc/ssh/sshd_config
+	echo "AllowTcpForwarding no" >> /etc/ssh/sshd_config
 	echo ""
 	/etc/init.d/ssh restart >/dev/null 2>&1
 
@@ -136,7 +136,7 @@ function __create_user {
 		cp /etc/nsswitch.conf	$JAILDIR/etc/
 
 		grep /etc/passwd -e "^root" > 		$JAILDIR/etc/passwd
-    grep /etc/group -e "^root" >        $JAILDIR/etc/group
+		grep /etc/group -e "^root" >        $JAILDIR/etc/group
 		grep /etc/passwd -e "^$NEWUSER" >> 	$JAILDIR/etc/passwd
 		grep /etc/group -e "^$NEWUSER" >> 	$JAILDIR/etc/group
 		grep /etc/shadow -e "^$NEWUSER" > 	$JAILDIR/etc/shadow
@@ -230,7 +230,7 @@ function __create_user {
 
 		# configure traffic shapping snip snap
 		NEWUSERID=$(id -u $NEWUSER)
-    iptables -t mangle -A OUTPUT -m owner --uid-owner $NEWUSER -j MARK --set-mark $NEWUSERID
+		iptables -t mangle -A OUTPUT -m owner --uid-owner $NEWUSER -j MARK --set-mark $NEWUSERID
 		
 		tc qdisc add dev $IF root handle 1: htb default 30 >/dev/null 2>&1
 		tc class add dev $IF parent 1: classid 1:1 htb rate $DNLD >/dev/null 2>&1
