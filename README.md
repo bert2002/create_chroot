@@ -21,9 +21,13 @@ Walkthrough
 -------
 
 $ create_chroot.sh init_server # create directory and install software
+
 $ create_chroot.sh create_user u007 # create user
+
 $ create_chroot.sh delete_user u007 # delete user
+
 $ create_chroot.sh show_tc # show traffic shaping
+
 $ create_chroot.sh remove_tc # remove traffic shaping
 
 Known Problems
