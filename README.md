@@ -14,8 +14,10 @@ Features
 Usage
 -------
 
+```
 $ bash create_chroot.sh
 Usage: create_chroot.sh {create_user|delete_user|init_server|remove_tc|show_tc} {userid}
+```
 
 Walkthrough
 -------
